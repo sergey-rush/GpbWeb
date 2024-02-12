@@ -1,6 +1,7 @@
 ﻿using GpbWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using GpbWeb.Data;
 
 namespace GpbWeb.Controllers
 {
@@ -15,6 +16,9 @@ namespace GpbWeb.Controllers
 
         public IActionResult Index()
         {
+            SqliteContext ctx = new SqliteContext();
+            var df = ctx.OrganizationDocuments.ToList();
+
             return View();
         }
 
